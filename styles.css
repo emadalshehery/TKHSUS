@@ -1,0 +1,143 @@
+:root{
+  --bg:#0b2338;
+  --surface:#173b4f;
+  --surface-2:#1c455b;
+  --line:#2b5e77;
+  --text:#eaf3f8;
+  --muted:#9cb9c9;
+  --accent:#63b3d4;
+  --pill:#154055;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Tajawal,"Segoe UI",system-ui,sans-serif;
+  min-height:100%;overflow-x:hidden;
+}
+
+/* ---------- header ---------- */
+.top{
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;
+  padding:14px 22px;border-bottom:1px solid var(--line);
+  position:relative;z-index:80;background:var(--bg);
+}
+.brand{justify-self:start;display:flex}
+.brand img{height:56px;display:block}
+.nav{display:flex;gap:14px;justify-content:center}
+.pill{
+  background:var(--pill);border:1px solid transparent;color:var(--text);
+  font:inherit;font-size:18px;font-weight:500;
+  padding:12px 34px;border-radius:16px;cursor:pointer;
+  transition:background .2s,border-color .2s;
+}
+.pill:hover{background:#1c4f68}
+.pill[aria-current="true"]{border-color:var(--accent)}
+.lang{
+  justify-self:end;
+  width:56px;height:56px;border-radius:50%;padding:0;font-size:17px;font-weight:700;
+  background:var(--pill);color:var(--text);border:0;cursor:pointer;
+}
+.lang:hover{background:#1c4f68}
+
+/* ---------- grids ---------- */
+.wrap{padding:44px 6vw 70px}
+.grid{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:1150px;margin:0 auto}
+.grid.cols2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));max-width:960px}
+
+.card{
+  background:var(--surface);border:1px solid rgba(255,255,255,.04);
+  border-radius:24px;cursor:pointer;color:inherit;font:inherit;text-align:center;
+  padding:26px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:14px;min-height:230px;
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+}
+.card:hover,.card:focus-visible{
+  transform:scale(1.07);background:var(--surface-2);
+  box-shadow:0 18px 40px rgba(0,0,0,.45);outline:none;
+}
+.card:focus-visible{box-shadow:0 0 0 2px var(--accent)}
+.card .label{
+  font-size:17px;font-weight:700;line-height:1.5;
+  max-height:0;opacity:0;overflow:hidden;
+  transition:max-height .25s ease,opacity .25s ease;
+}
+.card:hover .label,.card:focus-visible .label{max-height:90px;opacity:1}
+.card .sub{font-size:14px;color:var(--muted);font-weight:400}
+
+/* university card — rectangle with the real logo */
+.grid.unis{grid-template-columns:repeat(auto-fit,minmax(360px,1fr));max-width:1000px}
+.card.uni{aspect-ratio:16/9;min-height:0;padding:20px;gap:10px}
+.card.uni img{max-width:58%;max-height:52%;object-fit:contain}
+.head-logo{height:46px;width:auto;object-fit:contain}
+
+/* college tile (image on top, caption below — like the PDF) */
+.tile{padding:14px;gap:10px;min-height:0}
+.tile .thumb{
+  width:100%;aspect-ratio:16/7;border-radius:14px;
+  display:grid;place-items:center;overflow:hidden;
+}
+.tile .thumb svg{width:56px;height:56px;opacity:.9}
+.tile .label{max-height:none;opacity:1;font-size:19px}
+
+/* major card */
+.major{min-height:150px;padding:22px;align-items:flex-start;text-align:start;justify-content:flex-start;gap:8px}
+.major .label{max-height:none;opacity:1;font-size:20px}
+.major .sub{line-height:1.6}
+
+/* ---------- expanding panel ---------- */
+.panel{
+  position:fixed;background:var(--surface-2);border-radius:24px;overflow:hidden;
+  z-index:60;box-shadow:0 30px 80px rgba(0,0,0,.5);
+}
+.panel-inner{
+  position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;
+  opacity:0;transition:opacity .3s ease .05s;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+.panel.ready .panel-inner{opacity:1}
+.panel-head{
+  display:flex;align-items:center;gap:16px;padding:18px 24px;
+  border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface-2);z-index:2;
+}
+.back{
+  background:var(--pill);border:0;color:var(--text);font:inherit;font-size:16px;font-weight:500;
+  padding:10px 20px;border-radius:12px;cursor:pointer;
+}
+.back:hover{background:#245c78}
+.panel-title{font-size:22px;font-weight:700;margin:0}
+.panel-sub{font-size:14px;color:var(--muted);margin:2px 0 0}
+
+/* ---------- major detail ---------- */
+.detail{max-width:900px;margin:0 auto;padding:34px 26px 80px}
+.detail h2{font-size:34px;margin:0 0 6px;font-weight:800}
+.detail .tag{color:var(--accent);font-size:15px;margin:0 0 26px}
+.detail p.about{font-size:18px;line-height:1.95;color:#d6e6ef;margin:0 0 30px;max-width:66ch}
+.block{background:var(--surface);border-radius:18px;padding:22px 24px;margin-bottom:18px}
+.block h3{margin:0 0 14px;font-size:19px;font-weight:700}
+.block ul{margin:0;padding-inline-start:20px;line-height:2;color:#cfe2ec}
+.plan{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.term{background:var(--surface-2);border-radius:14px;padding:14px 16px}
+.term h4{margin:0 0 8px;font-size:15px;color:var(--accent);font-weight:700}
+.term ul{padding-inline-start:18px;line-height:1.85;font-size:14px}
+.empty{color:var(--muted);line-height:1.9;margin:0}
+
+@media (max-width:640px){
+  .top{padding:10px 12px;gap:8px}
+  .brand img{height:34px}
+  .head-logo{height:32px}
+  .nav{gap:8px}
+  .pill{padding:10px 14px;font-size:14px}
+  .lang{width:46px;height:46px;font-size:14px}
+  .wrap{padding:26px 16px 50px}
+  .grid{gap:16px}
+  .card{min-height:170px}
+  .card .label{max-height:90px;opacity:1}
+  .detail h2{font-size:26px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms!important}
+}
