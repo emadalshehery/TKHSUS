@@ -225,122 +225,7 @@ const COLLEGES = [
      plan:null},
   ]},
  
-  {id:'med', key:'med', name:t('كلية الطب','Medicine College'), majors:[
-    {id:'mbbs', name:t('الطب والجراحة','Medicine & Surgery'),
-     years:t('٦ سنوات + سنة امتياز','6 years + internship year'),
-     about:t('تخصص الطب البشري يؤهل لتشخيص الأمراض وعلاجها، ويبدأ بالعلوم الأساسية ثم التدريب السريري في المستشفيات.',
-             'Human medicine prepares you to diagnose and treat disease, starting with basic sciences and moving into clinical training in hospitals.'),
-     study:[t('التشريح وعلم وظائف الأعضاء','Anatomy and physiology'),
-            t('علم الأمراض والأدوية','Pathology and pharmacology'),
-            t('الباطنة والجراحة','Internal medicine and surgery'),
-            t('طب الأطفال والنساء','Pediatrics and obstetrics'),
-            t('التدريب السريري','Clinical rotations')],
-     careers:[t('طبيب مقيم ثم أخصائي','Resident then specialist physician'),
-              t('جراح','Surgeon'),
-              t('طبيب أسرة','Family physician'),
-              t('باحث طبي','Medical researcher')],
-     plan:null},
-    {id:'dent', name:t('طب الأسنان','Dentistry'),
-     years:t('٦ سنوات + سنة امتياز','6 years + internship year'),
-     about:t('طب الأسنان يجمع بين العلم والمهارة اليدوية في تشخيص وعلاج أمراض الفم والأسنان وتجميلها.',
-             'Dentistry combines science and manual skill in diagnosing and treating oral and dental conditions, including cosmetic work.'),
-     study:[t('تشريح الفم والأسنان','Oral and dental anatomy'),
-            t('علاج الجذور والحشوات','Endodontics and restorative dentistry'),
-            t('التركيبات الصناعية','Prosthodontics'),
-            t('جراحة الفم','Oral surgery'),
-            t('تقويم الأسنان','Orthodontics')],
-     careers:[t('طبيب أسنان عام','General dentist'),
-              t('أخصائي تقويم','Orthodontist'),
-              t('جراح فم وفكين','Oral and maxillofacial surgeon')],
-     plan:null},
-    {id:'pharm', name:t('الصيدلة','Pharmacy'),
-     years:t('٦ سنوات','6 years'),
-     about:t('الصيدلة تدرس الأدوية: تركيبها وتأثيرها وجرعاتها وتفاعلاتها، وصرفها بأمان للمرضى.',
-             'Pharmacy studies medicines — their composition, effects, dosing and interactions — and how to dispense them safely.'),
-     study:[t('الكيمياء الصيدلية','Pharmaceutical chemistry'),
-            t('علم الأدوية','Pharmacology'),
-            t('الصيدلانيات','Pharmaceutics'),
-            t('الصيدلة السريرية','Clinical pharmacy'),
-            t('العقاقير','Pharmacognosy')],
-     careers:[t('صيدلي مجتمعي','Community pharmacist'),
-              t('صيدلي سريري','Clinical pharmacist'),
-              t('صناعة دوائية','Pharmaceutical industry'),
-              t('رقابة دوائية','Drug regulation')],
-     plan:null},
-    {id:'nurse', name:t('التمريض','Nursing'),
-     years:t('٤ سنوات + سنة امتياز','4 years + internship year'),
-     about:t('التمريض تخصص رعاية مباشرة للمريض: المتابعة والعلاج والتثقيف الصحي، وهو عمود الفريق الطبي.',
-             'Nursing is hands-on patient care — monitoring, treatment and health education — and the backbone of the clinical team.'),
-     study:[t('أساسيات التمريض','Fundamentals of nursing'),
-            t('تمريض الباطنة والجراحة','Medical-surgical nursing'),
-            t('تمريض الأطفال والأمومة','Pediatric and maternity nursing'),
-            t('العناية الحرجة','Critical care'),
-            t('صحة المجتمع','Community health')],
-     careers:[t('ممرض مستشفى','Hospital nurse'),
-              t('ممرض عناية حرجة','Critical care nurse'),
-              t('ممرض صحة مجتمع','Community health nurse'),
-              t('مشرف تمريض','Nursing supervisor')],
-     plan:null},
-  ]},
- 
-  {id:'biz', key:'biz', name:t('كلية إدارة الأعمال','Business College'), majors:[
-    {id:'acc', name:t('المحاسبة','Accounting'),
-     years:t('٤ سنوات','4 years'),
-     about:t('المحاسبة هي لغة الأعمال: تسجيل العمليات المالية وتحليلها وإعداد القوائم التي تُبنى عليها القرارات.',
-             'Accounting is the language of business: recording and analyzing financial activity and producing the statements decisions rest on.'),
-     study:[t('المحاسبة المالية','Financial accounting'),
-            t('محاسبة التكاليف','Cost accounting'),
-            t('المراجعة','Auditing'),
-            t('الزكاة والضريبة','Zakat and taxation'),
-            t('نظم المعلومات المحاسبية','Accounting information systems')],
-     careers:[t('محاسب','Accountant'),
-              t('مراجع داخلي أو خارجي','Internal or external auditor'),
-              t('محاسب قانوني','Certified public accountant'),
-              t('أخصائي زكاة وضريبة','Zakat and tax specialist')],
-     plan:null},
-    {id:'fin', name:t('التمويل','Finance'),
-     years:t('٤ سنوات','4 years'),
-     about:t('التمويل يدرس كيف تُدار الأموال والاستثمارات والمخاطر، في الشركات والأسواق المالية.',
-             'Finance studies how money, investment and risk are managed inside companies and across financial markets.'),
-     study:[t('الإدارة المالية','Corporate finance'),
-            t('الاستثمار والمحافظ','Investments and portfolios'),
-            t('الأسواق المالية','Financial markets'),
-            t('إدارة المخاطر','Risk management'),
-            t('التمويل الإسلامي','Islamic finance')],
-     careers:[t('محلل مالي','Financial analyst'),
-              t('مصرفي استثماري','Investment banker'),
-              t('مدير محافظ','Portfolio manager'),
-              t('محلل مخاطر','Risk analyst')],
-     plan:null},
-    {id:'mkt', name:t('التسويق','Marketing'),
-     years:t('٤ سنوات','4 years'),
-     about:t('التسويق يدرس فهم العميل وبناء العلامة التجارية وإيصال المنتج للسوق الصحيح بالطريقة الصحيحة.',
-             'Marketing is about understanding customers, building a brand and getting a product to the right market the right way.'),
-     study:[t('سلوك المستهلك','Consumer behavior'),
-            t('بحوث التسويق','Marketing research'),
-            t('التسويق الرقمي','Digital marketing'),
-            t('إدارة العلامة التجارية','Brand management'),
-            t('إدارة المبيعات','Sales management')],
-     careers:[t('أخصائي تسويق رقمي','Digital marketing specialist'),
-              t('مدير علامة تجارية','Brand manager'),
-              t('باحث سوق','Market researcher'),
-              t('مدير مبيعات','Sales manager')],
-     plan:null},
-    {id:'mgt', name:t('إدارة الأعمال','Business Administration'),
-     years:t('٤ سنوات','4 years'),
-     about:t('إدارة الأعمال تخصص واسع يغطي التخطيط والتنظيم وقيادة الفرق واتخاذ القرار داخل المنشآت.',
-             'Business Administration is a broad major covering planning, organizing, leading teams and decision-making inside organizations.'),
-     study:[t('مبادئ الإدارة','Principles of management'),
-            t('السلوك التنظيمي','Organizational behavior'),
-            t('الإدارة الاستراتيجية','Strategic management'),
-            t('إدارة الموارد البشرية','Human resource management'),
-            t('ريادة الأعمال','Entrepreneurship')],
-     careers:[t('مدير عمليات','Operations manager'),
-              t('أخصائي موارد بشرية','HR specialist'),
-              t('مستشار إداري','Management consultant'),
-              t('رائد أعمال','Entrepreneur')],
-     plan:null},
-  ]},
+
 ];
  
 /* ============ rendering ============ */
@@ -367,10 +252,10 @@ function collegeCard(c,u){
   return b;
 }
  
-function majorCard(m,u,c){
+function majorCard(m,u,c,instant){
   const b = el('button','card major');
   b.innerHTML = `<div class="label">${L(m.name)}</div><div class="sub">${L(m.years)}</div>`;
-  b.onclick = () => expand(b, p => renderMajor(p,u,c,m));
+  b.onclick = () => (instant ? expandInstant : expand)(b, p => renderMajor(p,u,c,m));
   return b;
 }
  
@@ -420,7 +305,7 @@ function renderMajors(panel,u,c){
   head(panel,L(c.name),u?L(u.name):L(UI.pickMajor),u);
   const wrap = el('div','wrap');
   const g = el('div','grid cols2');
-  c.majors.forEach(m => g.appendChild(majorCard(m,u,c)));
+  c.majors.forEach(m => g.appendChild(majorCard(m,u,c,true)));
   wrap.appendChild(g);
   panel.inner.appendChild(wrap);
 }
@@ -497,6 +382,36 @@ function expand(sourceEl, render){
     render(panel);
     panel.classList.add('ready');
   };
+}
+ 
+/* Same as expand(), but skips the grow-from-card animation entirely and
+   snaps straight to the full panel. Used when a click should feel instant,
+   e.g. going from a college's major list into a major's detail page. */
+function expandInstant(sourceEl, render){
+  const panel = el('div','panel ready');
+ 
+  const mx = Math.max(14, window.innerWidth*0.035);
+  const my = Math.max(30, window.innerHeight*0.07);
+  const targetTop = my, targetLeft = mx;
+  const targetW = window.innerWidth - mx*2, targetH = window.innerHeight - my*2;
+ 
+  Object.assign(panel.style,{
+    top:targetTop+'px', left:targetLeft+'px',
+    width:targetW+'px', height:targetH+'px',
+    borderRadius:FULL_RADIUS
+  });
+ 
+  const inner = el('div','panel-inner');
+  panel.appendChild(inner);
+  panel.inner = inner;
+  panel.source = sourceEl;
+  panel.render = render;
+  document.body.appendChild(panel);
+  document.body.style.overflow='hidden';
+  stack.push(panel);
+  history.pushState({panel:true}, '');
+ 
+  render(panel);
 }
  
 /* The visible back button (and Escape) go through history.back() rather
