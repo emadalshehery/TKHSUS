@@ -529,7 +529,3 @@ langBtn.onclick = ()=>{
   paint();
 };
 paint();
-
-
-
-
