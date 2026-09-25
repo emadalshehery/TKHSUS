@@ -290,13 +290,33 @@ function renderHome(){
  
 function renderAllMajors(){
   stage.innerHTML='';
-  COLLEGES.forEach(c => {
-    const h = el('h2',null,L(c.name));
-    h.style.cssText='max-width:1150px;margin:34px auto 16px;font-size:22px;font-weight:700';
-    stage.appendChild(h);
-    const g = el('div','grid cols2');
-    availableMajors(c,null).forEach(m => g.appendChild(majorCard(m,null,c)));
-    stage.appendChild(g);
+
+  UNIS.forEach((u, universityIndex) => {
+    const universitySection = el('section','majors-university-section');
+
+    const universityTitle = el('h2','majors-university-title',L(u.name));
+    universitySection.appendChild(universityTitle);
+
+    // King Khalid University currently contains the Computer Science
+    // and Engineering colleges. King Saud University is rendered with
+    // the same college -> major hierarchy.
+    const universityColleges = u.id === 'kku'
+      ? COLLEGES.filter(c => c.id === 'cs' || c.id === 'eng')
+      : COLLEGES;
+
+    universityColleges.forEach(c => {
+      const majors = availableMajors(c,u);
+      if(!majors.length) return;
+
+      const collegeTitle = el('h3','majors-college-title',L(c.name));
+      universitySection.appendChild(collegeTitle);
+
+      const g = el('div','grid cols2');
+      majors.forEach(m => g.appendChild(majorCard(m,u,c)));
+      universitySection.appendChild(g);
+    });
+
+    stage.appendChild(universitySection);
   });
 }
  
