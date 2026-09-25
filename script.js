@@ -368,6 +368,13 @@ function head(panel,title,sub,mark){
 function renderColleges(panel,u){
   head(panel,L(u.name),L(UI.pickCollege),u);
   const wrap = el('div','wrap');
+  const weighted = u.id === 'kku'
+    ? t('للعام ١٤٤٨هـ: ٣٠٪ من معدل الثانوية + ٣٠٪ من القدرات + ٣٥٪ من التحصيلي + ٥٪ من STEP. هذه طريقة حساب الموزونة وليست نسبة قبول ثابتة.',
+        'For 1448 AH: 30% high school + 30% aptitude + 35% achievement + 5% STEP. This is the score formula, not a fixed admission cutoff.')
+    : t('للمسار العلمي وفق دليل القبول ٢٠٢٥: ٣٠٪ من معدل الثانوية + ٣٠٪ من القدرات + ٤٠٪ من التحصيلي. هذه طريقة حساب الموزونة وليست نسبة قبول ثابتة؛ قد تتغير معايير سنة التقديم.',
+        'For the science track in the 2025 admission guide: 30% high school + 30% aptitude + 40% achievement. This is the score formula, not a fixed cutoff; criteria may change by admission year.');
+  wrap.appendChild(el('div','block university-weighted',
+    `<h3>${lang==='ar'?'النسبة الموزونة':'Weighted admission score'}</h3><p class="about">${L(weighted)}</p>`));
   const g = el('div','grid cols2');
   COLLEGES.forEach(c => g.appendChild(collegeCard(c,u)));
   wrap.appendChild(g);
@@ -388,10 +395,10 @@ function renderMajor(panel,u,c,m){
   const d = el('div','detail');
   const list = arr => arr.map(x=>`<li>${L(x)}</li>`).join('');
   let planHTML;
-  const p = m.plan ? m.plan[lang] : null;
+  const p = u.id === 'kku' && KKU_PLANS[m.id] ? KKU_PLANS[m.id] : (m.plan ? m.plan[lang] : null);
   if(p){
     planHTML = `<div class="plan">` + p.map((courses,i)=>
-      `<div class="term"><h4>${L(UI.level(i+1))}</h4><ul>${courses.map(x=>`<li>${x}</li>`).join('')}</ul></div>`
+      `<div class="term"><h4>${L(UI.level(i+1))}${u.id === 'kku' && KKU_LEVEL_HOURS[m.id]?.[i] ? ` — ${KKU_LEVEL_HOURS[m.id][i]} ${lang==='ar'?'ساعة':'credit hours'}` : ''}</h4><ul>${courses.map(x=>`<li>${x}</li>`).join('')}</ul></div>`
     ).join('') + `</div>`;
   } else {
     planHTML = `<p class="empty">${L(UI.noPlan)}</p>`;
@@ -399,7 +406,7 @@ function renderMajor(panel,u,c,m){
   d.innerHTML =
     `<h2>${L(m.name)}</h2>
      <p class="tag">${u?L(u.name)+' — ':''}${L(UI.years)}: ${L(m.years)}</p>
-     <p class="about">${L(m.about)}</p>
+      <p class="about">${L(m.about)}</p>
      <div class="block"><h3>${L(UI.study)}</h3><ul>${list(m.study)}</ul></div>
      <div class="block"><h3>${L(UI.careers)}</h3><ul>${list(m.careers)}</ul></div>
      <div class="block"><h3>${L(UI.plan)}</h3>${planHTML}</div>`;

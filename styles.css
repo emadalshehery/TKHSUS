@@ -145,6 +145,8 @@ body{
 .detail .tag{color:var(--accent);font-size:15px;margin:0 0 26px}
 .detail p.about{font-size:18px;line-height:1.95;color:#d6e6ef;margin:0 0 30px;max-width:66ch}
 .block{background:var(--surface);border-radius:18px;padding:22px 24px;margin-bottom:18px}
+.university-weighted{max-width:900px;margin:0 auto 30px}
+.university-weighted .about{line-height:1.9;margin:0;color:#d6e6ef}
 .block h3{margin:0 0 14px;font-size:19px;font-weight:700}
 .block ul{margin:0;padding-inline-start:20px;line-height:2;color:#cfe2ec}
 .plan{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
