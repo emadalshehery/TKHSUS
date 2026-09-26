@@ -174,13 +174,11 @@ body{
 }
 
 /* ---------- majors page: university > college > major ---------- */
-.majors-university-section{max-width:1150px;margin:0 auto;padding:22px 0 34px}
-.majors-university-section + .majors-university-section{margin-top:22px;padding-top:42px;border-top:1px solid rgba(255,255,255,.10)}
-.majors-university-title{margin:0 0 26px;font-size:30px;font-weight:800;line-height:1.35}
-.majors-college-title{margin:28px 0 16px;font-size:22px;font-weight:700;line-height:1.4}
+.majors-college-section{max-width:1150px;margin:0 auto;padding:22px 0 34px}
+.majors-college-section + .majors-college-section{margin-top:22px;padding-top:42px;border-top:1px solid rgba(255,255,255,.10)}
+.majors-college-title{margin:0 0 26px;font-size:26px;font-weight:800;line-height:1.35}
 @media(max-width:700px){
-  .majors-university-section{padding:16px 0 26px}
-  .majors-university-section + .majors-university-section{padding-top:30px}
-  .majors-university-title{font-size:25px;margin-bottom:20px}
-  .majors-college-title{font-size:20px;margin-top:24px}
+  .majors-college-section{padding:16px 0 26px}
+  .majors-college-section + .majors-college-section{padding-top:30px}
+  .majors-college-title{font-size:22px;margin-bottom:20px}
 }
